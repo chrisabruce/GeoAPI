@@ -1,4 +1,4 @@
-module TownMe
+module GeoAPI
   class Entity < Base
     attr_reader  :guid, :name, :type, :geom, :url, :latitude, :longitude, :raw_json
     
