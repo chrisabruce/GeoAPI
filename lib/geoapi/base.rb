@@ -3,7 +3,7 @@ module GeoAPI
     class << self
       def build_url(resource_path, options = {})
 
-        options[:apikey] ||= TownMe.apikey
+        options[:apikey] ||= GeoAPI.apikey
         query_string = build_query_params(options)
         
         "#{GeoAPI::API_URL}#{resource_path}#{query_string}"

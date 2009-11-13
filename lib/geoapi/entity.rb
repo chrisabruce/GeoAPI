@@ -1,6 +1,6 @@
 module GeoAPI
   class Entity < Base
-    attr_reader  :guid, :name, :type, :geom, :url, :latitude, :longitude, :raw_json
+    attr_reader  :guid, :name, :type, :geom, :url, :latitude, :longitude, :views, :userviews, :raw_json
     
     alias_method :lat, :latitude 
     alias_method :lon, :longitude
@@ -14,13 +14,26 @@ module GeoAPI
     end
     
     def self.get_then_parse(url)
-      puts url
-      return Entity.new(get(url))
+      response = JSON.parse(get(url))
+      results = []
+      if response && response['result']
+        response['result'].each do |entity|
+          results << Entity.new(entity)
+        end
+      end
+      return results
     end
     
     # Instance methods
-    def initialize(json)
-      @raw_json = json
+    def initialize(attrs)
+      @raw_json = JSON.generate(attrs)
+      @guid = attrs['guid']
+      if attrs['meta']
+        @name = attrs['meta']['name']
+        @views = attrs['meta']['views'] || []
+        @userviews = attrs['meta']['userviews'] || []
+        @type = attrs['meta']['type'].to_sym
+      end
       self
     end
     

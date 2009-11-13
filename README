@@ -24,6 +24,10 @@ A Ruby wrapper for the GeoAPI.com APIs.  This gem was almost entirely inspired b
   
   # Lookup
   entities = GeoAPI::Entity.search(latitude, longitude, optional_parameters)
+
+  entities.each do |i| 
+    puts "guid: #{i.guid}\nname: #{i.name}\ntype: #{i.type}\nviews: #{i.views}\nuserviews: #{i.userviews}"
+  end
   
 
 
