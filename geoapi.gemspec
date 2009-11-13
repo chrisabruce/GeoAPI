@@ -9,8 +9,9 @@ Gem::Specification.new do |s|
   s.authors  = ["Chris Bruce"]
   
   s.files    = [
-		"README.rdoc",
-		"townme.gemspec", 
+		"README",
+		"LICENSE",
+		"geoapi.gemspec", 
 		"lib/geoapi.rb",
 		"lib/geoapi/base.rb",
 		"lib/geoapi/entity.rb",

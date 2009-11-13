@@ -26,12 +26,6 @@ A Ruby wrapper for the GeoAPI.com APIs.  This gem was almost entirely inspired b
   entities = GeoAPI::Entity.search(latitude, longitude, optional_parameters)
   
 
-  
-=== Views
-  
-  require 'geoapi'
-  GeoAPI.apikey = [Your App ID Here]
-
 
 == REQUIREMENTS:
 
@@ -50,5 +44,10 @@ ActiveSupport::JSON instead.
 
 == INSTALL:
 
-  gem install geoapi --source http://gems.github.com
+This gem is hosted on Gemcutter. To install gemcutter:
+  gem install gemcutter
+  gem tumble
+  
+To install geoapi after gemcutter:
+  gem install geoapi
   
