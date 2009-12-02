@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name     = "geoapi"
-  s.version  = "0.2.0"
+  s.version  = "0.2.1"
   s.date     = "2009-11-10"
   s.summary  = "A Ruby wrapper for the GeoAPI.com API."
   s.email    = "chrisabruce@gmail.com"
