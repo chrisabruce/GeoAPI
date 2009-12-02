@@ -1,4 +1,4 @@
 module GeoAPI
-  class View < Base
+  class View
   end
 end

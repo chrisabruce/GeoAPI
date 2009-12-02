@@ -12,9 +12,9 @@ else
 end
  
 require 'geoapi/version'
-require 'geoapi/base'
 require 'geoapi/entity'
 require 'geoapi/view'
+require 'geoapi/query'
  
 module GeoAPI
   API_VERSION = "v1"
