@@ -1,8 +1,13 @@
 = NOTE
 
-This is currently in Alpha Version and isn't fully functional.  Currently, you can only conduct an Entity search and get the raw_json back.
+This is still actively being developed and is very alpha.  You can currently conduct a simple search and an MQL query.  The results are returned as ruby hash.
 
-I am quickly developing this into a fully featured gem that supports the full MQL queries offered by GeoAPI.com, so expect frequent updates until a major point release is reached.
+== TODO
+
+- Building data objects to represent Entities and Views.
+
+- Allow updates to views.
+
 
 = GeoAPI
 
@@ -20,14 +25,14 @@ A Ruby wrapper for the GeoAPI.com APIs.  This gem was almost entirely inspired b
   longitude = -131.000
   
   # Non Required Options
-  optional_parameters = {:radius => '500m', :type => 'POI', :include_parents => true, :limit => 5, :pretty => true}
+  optional_parameters = {:radius => '500m', :type => 'POI', "include-parents" => true, :limit => 5, :pretty => true}
   
-  # Lookup
-  entities = GeoAPI::Entity.search(latitude, longitude, optional_parameters)
+  # Simple Search
+  result = GeoAPI::Query.simple_search(latitude, longitude, optional_parameters)
 
-  entities.each do |i| 
-    puts "guid: #{i.guid}\nname: #{i.name}\ntype: #{i.type}\nviews: #{i.views}\nuserviews: #{i.userviews}"
-  end
+  # MQL Query
+  q = {:lat => 37.75629, :lon => -122.4213, :radius => "1km", :entity => [{:type => "business", :guid => nil}]}
+  results = GeoAPI::Query.query(q)
   
 
 
