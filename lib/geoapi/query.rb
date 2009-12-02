@@ -1,5 +1,3 @@
-require 'URI'
-
 module GeoAPI
   class Query
     
